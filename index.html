@@ -16,14 +16,14 @@
 <meta property="og:title" content="Cambodia Vision Tour · October 2026" />
 <meta property="og:description" content="Come see what God is doing in Cambodia. A week to walk the ground, meet the people carrying the work, and prayerfully consider your part in it." />
 <meta property="og:url" content="https://jcobler77.github.io/cambodia_vision/" />
-<meta property="og:image" content="https://jcobler77.github.io/cambodia_vision/og-image.png" />
+<meta property="og:image" content="https://jcobler77.github.io/cambodia_vision/images/hero.jpg" />
 <meta property="og:image:alt" content="Cambodia Vision Tour · October 2026 · Living Water Foursquare" />
 
 <!-- Twitter/X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Cambodia Vision Tour · October 2026" />
 <meta name="twitter:description" content="Come see what God is doing in Cambodia. A week to walk the ground, meet the people carrying the work, and prayerfully consider your part in it." />
-<meta name="twitter:image" content="https://jcobler77.github.io/cambodia_vision/og-image.png" />
+<meta name="twitter:image" content="https://jcobler77.github.io/cambodia_vision/images/hero.jpg" />
 
 <!-- Favicon (emoji, no external file needed) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌏</text></svg>" />
@@ -51,8 +51,9 @@
   header.hero{
     position:relative; color:#fff; overflow:hidden;
     background:
-      radial-gradient(1200px 500px at 75% -10%, rgba(201,138,43,.35), transparent 60%),
-      linear-gradient(150deg, var(--teal) 0%, var(--teal-d) 100%);
+      radial-gradient(1200px 500px at 75% -10%, rgba(201,138,43,.30), transparent 60%),
+      linear-gradient(150deg, rgba(15,92,87,.88) 0%, rgba(10,66,63,.94) 100%),
+      url('images/hero.jpg') center 32% / cover no-repeat;
   }
   .hero-inner{padding:74px 22px 84px; max-width:1080px; margin:0 auto; position:relative; z-index:2;}
   .hero .eyebrow{color:var(--gold-l);}
@@ -105,6 +106,8 @@
     display:flex; align-items:flex-end; box-shadow:var(--shadow);}
   .photo::before{content:"📷"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
     font-size:2rem; opacity:.35;}
+  .photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;}
+  .photo.has-img::before{display:none;}
   .photo span{position:relative; z-index:2; width:100%; padding:10px 12px; font-size:.82rem; font-weight:600;
     color:#41372a; background:linear-gradient(transparent, rgba(255,255,255,.85));}
   .photo-note{color:var(--muted); font-size:.9rem; margin-top:12px;}
@@ -270,16 +273,16 @@
   <div class="wrap">
     <div class="eyebrow">A Glimpse</div>
     <h2>What you'll see</h2>
-    <p class="section-lead">Photos from the field. (Placeholders for now — drop in real images before sending.)</p>
+    <p class="section-lead">Real photos from the field.</p>
     <div class="gallery">
-      <div class="photo"><span>Kids' classes · Poipet</span></div>
-      <div class="photo"><span>New Life Center · Phnom Penh</span></div>
-      <div class="photo"><span>Café Eden &amp; campus · Battambang</span></div>
+      <div class="photo has-img"><img src="images/kids-poipet.jpg" alt="Children gathering for kids' classes in Poipet" loading="lazy"><span>Kids' classes · Poipet</span></div>
+      <div class="photo has-img"><img src="images/new-life-center.jpg" alt="Students in a computer skills class at the New Life Educational Center" loading="lazy"><span>New Life Center · Phnom Penh</span></div>
+      <div class="photo has-img"><img src="images/cafe-eden.jpg" alt="Café Eden storefront in Battambang at dusk" loading="lazy"><span>Café Eden &amp; campus · Battambang</span></div>
       <div class="photo"><span>Displaced-families camp</span></div>
-      <div class="photo"><span>Angkor Wat · Siem Reap</span></div>
-      <div class="photo"><span>Community night · worship</span></div>
+      <div class="photo has-img"><img src="images/angkor-wat.jpg" alt="The towers of Angkor Wat in Siem Reap" loading="lazy"><span>Angkor Wat · Siem Reap</span></div>
+      <div class="photo has-img"><img src="images/community-night.jpg" alt="Worship and prayer during the community night" loading="lazy"><span>Community night · worship</span></div>
     </div>
-    <p class="photo-note">To swap in a photo: replace a tile's background with <code>&lt;img&gt;</code>, or send me the images and I'll drop them in.</p>
+    <p class="photo-note">One tile is still a placeholder — send a photo from the displaced-families camp and I'll drop it in.</p>
   </div>
 </section>
 

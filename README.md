@@ -15,14 +15,16 @@ python3 -m http.server 8000
 ## Publish it (GitHub Pages)
 
 This repo includes a workflow (`.github/workflows/deploy.yml`) that publishes the
-site automatically whenever changes land on the **`main`** branch.
+site automatically on every push to the default branch
+(`claude/website-conversion-qoxwm9`).
 
 One-time setup:
 
 1. In GitHub, go to **Settings → Pages**.
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-3. Merge this branch into `main`. The workflow runs and the site goes live at
-   `https://jcobler77.github.io/cambodia_vision/`.
+
+That's it — the next push runs the workflow and the site goes live at
+`https://jcobler77.github.io/cambodia_vision/`.
 
 You can also trigger a deploy manually from the **Actions** tab
 ("Deploy to GitHub Pages" → **Run workflow**).

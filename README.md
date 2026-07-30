@@ -24,7 +24,7 @@ One-time setup:
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
 
 That's it — the next push runs the workflow and the site goes live at
-`https://jcobler77.github.io/cambodia_vision/`.
+`https://jcobler77.github.io/Cambodia_vision/`.
 
 You can also trigger a deploy manually from the **Actions** tab
 ("Deploy to GitHub Pages" → **Run workflow**).

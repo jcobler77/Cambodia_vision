@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cambodia route map</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,7 @@
 </style>
 </head>
 <body>
-<svg id="map" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid meet"></svg>
+<svg id="map" preserveAspectRatio="xMidYMid meet"></svg>
 <script>
 (function () {
   const THEMES = {
@@ -23,48 +24,44 @@
       land: '#f6f5f5', outline: '#201e1d', outlineW: 2, coast: '#201e1d',
       route: '#201e1d', routeW: 2.5, dash: '11 8', leader: 'rgba(32,30,29,0.45)',
       hub: '#ec3013', stopFill: '#f6f5f5', city: '#201e1d', kicker: '#ec3013',
-      muted: '#7d7979', sea: '#8c8886',
+      muted: '#7d7979', sea: '#8c8886', rule: 'rgba(32,30,29,0.4)',
       head: '"Archivo", sans-serif', headW: 800, body: '"Archivo", sans-serif',
       nameTrack: '-0.02em', kickerTrack: '0.13em', grid: null
     },
     industry: {
       water: '#eceef1', neighbor: '#e2e3e7', neighborLine: '#eceef1',
       land: 'rgba(89,128,166,0.13)', outline: '#5980a6', outlineW: 1.25, coast: '#5980a6',
-      route: '#41618088', routeW: 2, dash: '9 6', leader: 'rgba(89,128,166,0.7)',
+      route: '#416180', routeW: 2, dash: '9 6', leader: 'rgba(89,128,166,0.7)',
       hub: '#5980a6', stopFill: '#f5f5f8', city: '#1d1f20', kicker: '#5980a6',
-      muted: '#7a7a7d', sea: '#748a9e',
+      muted: '#7a7a7d', sea: '#748a9e', rule: 'rgba(29,31,32,0.22)',
       head: '"Barlow Condensed", sans-serif', headW: 600, body: '"Barlow", sans-serif',
       nameTrack: '0.01em', kickerTrack: '0.17em', grid: 'rgba(89,128,166,0.13)'
     }
   };
   const t = THEMES[new URLSearchParams(location.search).get('theme')] || THEMES.modernist;
-  t.route = t.route === '#41618088' ? '#416180' : t.route;
 
-  const W = 1200, H = 640;
-
-  // Label gutters keep the type well clear of the country outline.
   const STOPS = [
-    { n: 3, name: 'Poipet',     lon: 102.5657, lat: 13.6564, when: 'Day 3–4 · Oct 27–28', tag: 'Thai border',   hub: false, lx: 268, ly: 146, side: 'left'  },
-    { n: 2, name: 'Battambang', lon: 103.1968, lat: 13.0957, when: 'Day 3 · Oct 27',      tag: '~3.5 hr drive', hub: false, lx: 268, ly: 380, side: 'left'  },
-    { n: 4, name: 'Siem Reap',  lon: 103.8555, lat: 13.3622, when: 'Day 5–6 · Oct 29–30', tag: 'Fly out · SAI', hub: true,  lx: 932, ly: 134, side: 'right' },
-    { n: 1, name: 'Phnom Penh', lon: 104.9160, lat: 11.5564, when: 'Day 1–2 · Oct 25–26', tag: 'Fly in · KTI',  hub: true,  lx: 932, ly: 462, side: 'right' }
+    { n: 3, name: 'Poipet',     lon: 102.5657, lat: 13.6564, when: 'Day 3–4 · Tue–Wed', tag: 'Thai border',   hub: false, lx: 268, ly: 146, side: 'left'  },
+    { n: 2, name: 'Battambang', lon: 103.1968, lat: 13.0957, when: 'Day 3 · Tue',       tag: '~3.5 hr drive', hub: false, lx: 268, ly: 380, side: 'left'  },
+    { n: 4, name: 'Siem Reap',  lon: 103.8555, lat: 13.3622, when: 'Day 5–6 · Thu–Fri', tag: 'Fly out · REP', hub: true,  lx: 932, ly: 134, side: 'right' },
+    { n: 1, name: 'Phnom Penh', lon: 104.9160, lat: 11.5564, when: 'Day 1–2 · Sun–Mon', tag: 'Fly in · PNH',  hub: true,  lx: 932, ly: 462, side: 'right' }
   ];
   const ROUTE = ['Phnom Penh', 'Battambang', 'Poipet', 'Siem Reap'];
-  const CONTEXT = [
-    { name: 'THAILAND', lon: 101.4, lat: 12.4, size: 14 },
-    { name: 'LAOS',     lon: 106.3, lat: 14.5, size: 14 },
-    { name: 'VIETNAM',  lon: 107.0, lat: 10.9, size: 14 },
-    { name: 'GULF OF THAILAND', lon: 102.6, lat: 10.1, size: 12, sea: true }
-  ];
+  const byName = Object.fromEntries(STOPS.map(s => [s.name, s]));
 
-  const svg = d3.select('#map');
+  const portrait = window.innerWidth / window.innerHeight < 1.2;
+  const W = portrait ? 760 : 1200;
+  const H = portrait ? 1080 : 640;
+
+  const svg = d3.select('#map').attr('viewBox', '0 0 ' + W + ' ' + H);
   svg.append('rect').attr('width', W).attr('height', H).attr('fill', t.water);
 
   d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json').then(topo => {
     const countries = topojson.feature(topo, topo.objects.countries).features;
     const khm = countries.find(f => f.properties.name === 'Cambodia');
 
-    const projection = d3.geoMercator().fitExtent([[352, 108], [848, 532]], khm);
+    const extent = portrait ? [[70, 120], [690, 560]] : [[352, 108], [848, 532]];
+    const projection = d3.geoMercator().fitExtent(extent, khm);
     const path = d3.geoPath(projection);
     const xy = d => projection([d.lon, d.lat]);
 
@@ -84,6 +81,15 @@
       .attr('fill', t.land).attr('stroke', t.coast)
       .attr('stroke-width', t.outlineW).attr('stroke-linejoin', 'round');
 
+    const CONTEXT = portrait
+      ? [{ name: 'THAILAND', lon: 101.6, lat: 12.6, size: 15 },
+         { name: 'LAOS', lon: 106.4, lat: 14.4, size: 15 },
+         { name: 'VIETNAM', lon: 107.2, lat: 10.7, size: 15 }]
+      : [{ name: 'THAILAND', lon: 101.4, lat: 12.4, size: 14 },
+         { name: 'LAOS', lon: 106.3, lat: 14.5, size: 14 },
+         { name: 'VIETNAM', lon: 107.0, lat: 10.9, size: 14 },
+         { name: 'GULF OF THAILAND', lon: 102.6, lat: 10.1, size: 12, sea: true }];
+
     svg.append('g').selectAll('text')
       .data(CONTEXT).join('text')
       .attr('x', d => xy(d)[0]).attr('y', d => xy(d)[1])
@@ -94,65 +100,105 @@
       .attr('fill', d => d.sea ? t.sea : t.muted)
       .text(d => d.name);
 
-    const byName = Object.fromEntries(STOPS.map(s => [s.name, s]));
     svg.append('path')
       .datum({ type: 'LineString', coordinates: ROUTE.map(n => [byName[n].lon, byName[n].lat]) })
       .attr('d', path).attr('fill', 'none')
       .attr('stroke', t.route).attr('stroke-width', t.routeW)
       .attr('stroke-dasharray', t.dash).attr('stroke-linecap', 'round');
 
-    // leader lines from each dot out to its label gutter
-    svg.append('g').selectAll('polyline').data(STOPS).join('polyline')
-      .attr('fill', 'none').attr('stroke', t.leader).attr('stroke-width', 1)
-      .attr('points', d => {
-        const [x, y] = xy(d);
-        const endX = d.side === 'left' ? d.lx + 12 : d.lx - 12;
-        const midX = d.side === 'left' ? x - 34 : x + 34;
-        return [[x, y], [midX, y], [midX, d.ly], [endX, d.ly]].map(p => p.join(',')).join(' ');
-      });
+    if (!portrait) {
+      svg.append('g').selectAll('polyline').data(STOPS).join('polyline')
+        .attr('fill', 'none').attr('stroke', t.leader).attr('stroke-width', 1)
+        .attr('points', d => {
+          const [x, y] = xy(d);
+          const endX = d.side === 'left' ? d.lx + 12 : d.lx - 12;
+          const midX = d.side === 'left' ? x - 34 : x + 34;
+          return [[x, y], [midX, y], [midX, d.ly], [endX, d.ly]].map(p => p.join(',')).join(' ');
+        });
+    }
 
+    const size = portrait ? 30 : 34;
     const g = svg.append('g').selectAll('g').data(STOPS).join('g')
       .attr('transform', d => 'translate(' + xy(d).join(',') + ')');
-
     g.append('rect')
-      .attr('x', -17).attr('y', -17).attr('width', 34).attr('height', 34)
+      .attr('x', -size / 2).attr('y', -size / 2).attr('width', size).attr('height', size)
       .attr('fill', d => d.hub ? t.hub : t.stopFill)
       .attr('stroke', t.outline).attr('stroke-width', t.outlineW);
-
     g.append('text')
-      .attr('text-anchor', 'middle').attr('y', 9)
-      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 24)
+      .attr('text-anchor', 'middle').attr('y', portrait ? 8 : 9)
+      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', portrait ? 21 : 24)
       .attr('fill', d => d.hub ? t.stopFill : t.city)
       .text(d => d.n);
 
-    const label = svg.append('g').selectAll('g').data(STOPS).join('g')
-      .attr('transform', d => 'translate(' + d.lx + ',' + d.ly + ')');
-    const anchor = d => d.side === 'left' ? 'end' : 'start';
+    if (portrait) {
+      // numbered legend beneath the map — far more legible on a phone
+      const rows = ROUTE.map(n => byName[n]);
+      const top = 636, rowH = 108;
+      const legend = svg.append('g').selectAll('g').data(rows).join('g')
+        .attr('transform', (d, i) => 'translate(56,' + (top + i * rowH) + ')');
 
-    label.append('text').attr('text-anchor', anchor).attr('y', -30)
-      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 13)
-      .attr('letter-spacing', t.kickerTrack).attr('fill', t.kicker)
-      .text(d => d.tag.toUpperCase());
+      legend.append('line')
+        .attr('x1', 0).attr('x2', W - 112).attr('y1', -22).attr('y2', -22)
+        .attr('stroke', t.rule).attr('stroke-width', 2);
 
-    label.append('text').attr('text-anchor', anchor)
-      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 34)
-      .attr('letter-spacing', t.nameTrack).attr('fill', t.city)
-      .text(d => d.name);
+      legend.append('rect')
+        .attr('x', 0).attr('y', 8).attr('width', 46).attr('height', 46)
+        .attr('fill', d => d.hub ? t.hub : t.stopFill)
+        .attr('stroke', t.outline).attr('stroke-width', t.outlineW);
+      legend.append('text')
+        .attr('x', 23).attr('y', 42).attr('text-anchor', 'middle')
+        .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 30)
+        .attr('fill', d => d.hub ? t.stopFill : t.city)
+        .text(d => d.n);
 
-    label.append('line')
-      .attr('x1', d => d.side === 'left' ? -186 : 0).attr('x2', d => d.side === 'left' ? 0 : 186)
-      .attr('y1', 16).attr('y2', 16)
-      .attr('stroke', t.kicker).attr('stroke-width', 2.5);
+      legend.append('text').attr('x', 72).attr('y', 20)
+        .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 15)
+        .attr('letter-spacing', t.kickerTrack).attr('fill', t.kicker)
+        .text(d => d.tag.toUpperCase());
+      legend.append('text').attr('x', 72).attr('y', 54)
+        .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 38)
+        .attr('letter-spacing', t.nameTrack).attr('fill', t.city)
+        .text(d => d.name);
+      legend.append('text').attr('x', 72).attr('y', 82)
+        .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 21)
+        .attr('letter-spacing', '0.05em').attr('fill', t.muted)
+        .text(d => d.when.toUpperCase());
+    } else {
+      const label = svg.append('g').selectAll('g').data(STOPS).join('g')
+        .attr('transform', d => 'translate(' + d.lx + ',' + d.ly + ')');
+      const anchor = d => d.side === 'left' ? 'end' : 'start';
 
-    label.append('text').attr('text-anchor', anchor).attr('y', 44)
-      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 21)
-      .attr('letter-spacing', '0.05em').attr('fill', t.city)
-      .text(d => d.when.toUpperCase());
+      label.append('text').attr('text-anchor', anchor).attr('y', -30)
+        .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 13)
+        .attr('letter-spacing', t.kickerTrack).attr('fill', t.kicker)
+        .text(d => d.tag.toUpperCase());
+
+      label.append('text').attr('text-anchor', anchor)
+        .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 34)
+        .attr('letter-spacing', t.nameTrack).attr('fill', t.city)
+        .text(d => d.name);
+
+      label.append('line')
+        .attr('x1', d => d.side === 'left' ? -186 : 0).attr('x2', d => d.side === 'left' ? 0 : 186)
+        .attr('y1', 16).attr('y2', 16)
+        .attr('stroke', t.kicker).attr('stroke-width', 2.5);
+
+      label.append('text').attr('text-anchor', anchor).attr('y', 44)
+        .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 21)
+        .attr('letter-spacing', '0.05em').attr('fill', t.city)
+        .text(d => d.when.toUpperCase());
+    }
   }).catch(err => {
     svg.append('text').attr('x', 28).attr('y', 40)
       .attr('font-family', t.body).attr('font-size', 15).attr('fill', t.muted)
       .text('Map data could not be loaded.');
     console.error(err);
+  });
+
+  let last = portrait;
+  addEventListener('resize', () => {
+    const now = window.innerWidth / window.innerHeight < 1.2;
+    if (now !== last) location.reload();
   });
 })();
 </script>

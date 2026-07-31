@@ -1,351 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cambodia Vision Tour · October 25–30, 2026</title>
-
-<!-- SEO -->
-<meta name="description" content="Cambodia Vision Tour — October 2026 with Living Water Foursquare. A week to see what God is doing in Cambodia: schools and skills training, kids' classes near the border, churches, and the 2033 vision." />
-<meta name="author" content="Pastor Jon Cobler" />
-<meta name="theme-color" content="#0f5c57" />
-<link rel="canonical" href="https://jcobler77.github.io/Cambodia_vision/" />
-
-<!-- Open Graph (link previews for text / email / social) -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Cambodia Vision Tour · October 25–30, 2026" />
-<meta property="og:description" content="Come see what God is doing in Cambodia. A week to walk the ground, meet the people carrying the work, and prayerfully consider your part in it." />
-<meta property="og:url" content="https://jcobler77.github.io/Cambodia_vision/" />
-<meta property="og:image" content="https://jcobler77.github.io/Cambodia_vision/images/hero.jpg" />
-<meta property="og:image:alt" content="Cambodia Vision Tour · October 25–30, 2026 · Living Water Foursquare" />
-
-<!-- Twitter/X -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Cambodia Vision Tour · October 25–30, 2026" />
-<meta name="twitter:description" content="Come see what God is doing in Cambodia. A week to walk the ground, meet the people carrying the work, and prayerfully consider your part in it." />
-<meta name="twitter:image" content="https://jcobler77.github.io/Cambodia_vision/images/hero.jpg" />
-
-<!-- Favicon (emoji, no external file needed) -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌏</text></svg>" />
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cambodia Vision Tour · October 2026</title>
+<meta name="author" content="Pastor Jon Cobler">
+<meta name="description" content="Cambodia Vision Tour — October 2026 with Living Water Foursquare. Join me to discover what God is doing in this nation and how you might be a part of it.">
+<meta name="theme-color" content="#ec3013">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cambodia Vision Tour · October 2026">
+<meta property="og:description" content="Join me to discover what God is doing in this nation — and how you might be a part of it.">
+<meta property="og:image" content="images/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&amp;family=Barlow:wght@400;500;700&amp;family=Barlow+Condensed:wght@400;600&amp;display=swap">
 <style>
-  :root{
-    --ink:#1f2a2e; --muted:#5c6b6f; --paper:#f7f4ee; --card:#ffffff;
-    --teal:#0f5c57; --teal-d:#0a423f; --gold:#c98a2b; --gold-l:#e7b562;
-    --line:#e3ddd2; --river:#7cb8c4;
-    --shadow:0 10px 30px rgba(15,60,55,.10), 0 2px 8px rgba(0,0,0,.05);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0; color:var(--ink); background:var(--paper);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.65; -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{font-family:Georgia,"Times New Roman",serif; line-height:1.2; font-weight:600;}
-  a{color:var(--teal);}
-  .wrap{max-width:1080px; margin:0 auto; padding:0 22px;}
-  .eyebrow{text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; font-weight:700; color:var(--gold);}
-
-  /* HERO */
-  header.hero{
-    position:relative; color:#fff; overflow:hidden;
-    background:
-      radial-gradient(1200px 500px at 75% -10%, rgba(201,138,43,.30), transparent 60%),
-      linear-gradient(150deg, rgba(15,92,87,.88) 0%, rgba(10,66,63,.94) 100%),
-      url('images/hero.jpg') center 32% / cover no-repeat;
-  }
-  .hero-inner{padding:74px 22px 84px; max-width:1080px; margin:0 auto; position:relative; z-index:2;}
-  .hero .eyebrow{color:var(--gold-l);}
-  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem); margin:.2em 0 .3em; letter-spacing:-.01em;}
-  .hero p.lead{font-size:clamp(1.05rem,2vw,1.3rem); max-width:640px; color:#eaf2f0; margin:.2em 0 1.4em;}
-  .facts{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px;}
-  .fact{background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22);
-    padding:10px 16px; border-radius:999px; font-size:.92rem; backdrop-filter:blur(4px);}
-  .fact b{color:var(--gold-l);}
-  .cta-row{margin-top:26px; display:flex; gap:12px; flex-wrap:wrap;}
-  .btn{display:inline-block; padding:13px 22px; border-radius:10px; font-weight:700;
-    text-decoration:none; font-size:.95rem; transition:transform .12s ease, box-shadow .12s ease;}
-  .btn-gold{background:var(--gold); color:#2a1c05;}
-  .btn-ghost{background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.5);}
-  .btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.2);}
-  .wave{display:block; width:100%; height:40px; margin-top:-1px;}
-
-  /* SECTIONS */
-  section{padding:64px 0;}
-  section h2{font-size:clamp(1.7rem,3.2vw,2.3rem); margin:0 0 .2em;}
-  .section-lead{color:var(--muted); max-width:680px; margin:.2em 0 2em; font-size:1.05rem;}
-
-  /* VISION stat row */
-  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:8px;}
-  .stat{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow);}
-  .stat .num{font-family:Georgia,serif; font-size:2.4rem; color:var(--teal); font-weight:700; line-height:1;}
-  .stat .lbl{color:var(--muted); margin-top:6px; font-size:.95rem;}
-
-  /* MAP + itinerary layout */
-  .map-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center;}
-  .map-card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:14px; box-shadow:var(--shadow);}
-  .map-card svg{width:100%; height:auto; display:block;}
-  .route-legend{display:flex; gap:16px; flex-wrap:wrap; margin-top:10px; padding:0 8px 6px;}
-  .route-legend span{font-size:.85rem; color:var(--muted); display:flex; align-items:center; gap:6px;}
-  .dot{width:11px;height:11px;border-radius:50%;background:var(--gold);display:inline-block;border:2px solid #fff;box-shadow:0 0 0 1px var(--gold);}
-
-  /* ITINERARY */
-  .days{display:flex; flex-direction:column; gap:12px;}
-  .day{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--gold);
-    border-radius:12px; padding:16px 18px; box-shadow:var(--shadow);}
-  .day h3{margin:0 0 .25em; font-size:1.12rem; display:flex; align-items:baseline; gap:10px;}
-  .day h3 .tag{font-family:-apple-system,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.08em;
-    text-transform:uppercase; color:#fff; background:var(--teal); padding:3px 9px; border-radius:999px;}
-  .day p{margin:.2em 0 0; color:var(--muted); font-size:.97rem;}
-
-  /* GALLERY */
-  .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
-  .photo{position:relative; aspect-ratio:4/3; border-radius:14px; overflow:hidden;
-    background:linear-gradient(135deg,#e9e2d5,#d8cdba); border:1px solid var(--line);
-    display:flex; align-items:flex-end; box-shadow:var(--shadow);}
-  .photo::before{content:"📷"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-size:2rem; opacity:.35;}
-  .photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;}
-  .photo.has-img::before{display:none;}
-  .photo span{position:relative; z-index:2; width:100%; padding:10px 12px; font-size:.82rem; font-weight:600;
-    color:#41372a; background:linear-gradient(transparent, rgba(255,255,255,.85));}
-  .photo-note{color:var(--muted); font-size:.9rem; margin-top:12px;}
-
-  /* COST */
-  .cost-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:24px;}
-  .cost-card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:28px; box-shadow:var(--shadow);}
-  .cost-card.feature{background:linear-gradient(160deg,var(--teal),var(--teal-d)); color:#fff; border:none;}
-  .cost-card.feature .price{font-family:Georgia,serif; font-size:3rem; font-weight:700; line-height:1; color:#fff;}
-  .cost-card.feature .price small{font-size:1rem; color:var(--gold-l); font-weight:600;}
-  .cost-card h3{margin:0 0 .4em;}
-  .cost-card ul{margin:.4em 0 0; padding-left:1.1em; color:var(--muted);}
-  .cost-card.feature ul{color:#dcebe8;}
-  .cost-card li{margin:.3em 0;}
-  .pill{display:inline-block; background:var(--gold); color:#2a1c05; font-weight:700; font-size:.78rem;
-    padding:4px 11px; border-radius:999px; margin-bottom:12px;}
-
-  /* CONTACT */
-  .contact{background:var(--teal-d); color:#fff;}
-  .contact h2{color:#fff;}
-  .contact a{color:var(--gold-l);}
-  .contact .card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18);
-    border-radius:16px; padding:26px; max-width:520px;}
-  .contact .name{font-family:Georgia,serif; font-size:1.35rem; margin-bottom:2px;}
-  .contact .role{color:#cfe0dd; font-size:.95rem; margin-bottom:14px;}
-  .contact .line{margin:6px 0; font-size:1.02rem;}
-
-  footer{background:#12201f; color:#9fb3b0; font-size:.85rem; padding:26px 0;}
-  .tentative{background:rgba(201,138,43,.14); border:1px solid rgba(201,138,43,.4); color:#8a6318;
-    padding:12px 16px; border-radius:10px; font-size:.9rem; margin-top:18px;}
-
-  @media (max-width:820px){
-    .map-grid,.cost-grid{grid-template-columns:1fr;}
-    .stats{grid-template-columns:1fr;}
-    .gallery{grid-template-columns:1fr 1fr;}
-  }
-  @media (max-width:520px){ .gallery{grid-template-columns:1fr;} }
+  body { margin: 0; background: #f3f2f2; }
+  a { color: inherit; }
+</style>
+<style>
+.hv1:hover{background:#dd2b0f !important}
+.hv2:hover{background:rgba(243,242,242,0.12) !important}
+.hv3:hover{background:#ec3013 !important;border-color:#ec3013 !important;color:#f3f2f2 !important}
+.hv4:hover{background:#ec3013 !important;border-color:#ec3013 !important;color:#f3f2f2 !important}
+.hv5:hover{background:#ffe0d9 !important}
 </style>
 </head>
 <body>
+<div style="width:100%;max-width:1440px;margin:0 auto;background:#f3f2f2;color:#201e1d;font-family:Archivo,system-ui,sans-serif;font-size:15px;line-height:1.55">
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Living Water Foursquare · Vision Tour</div>
-    <h1>Come see what God is doing in Cambodia</h1>
-    <p class="lead">A week to walk the ground, meet the people carrying the work, and prayerfully consider your part in it. This is not religious tourism.</p>
-    <div class="facts">
-      <div class="fact">🗓️ <b>Sun, Oct 25 → Fri, Oct 30</b> · 2026</div>
-      <div class="fact">✈️ Into <b>Phnom Penh</b> · Out of <b>Siem Reap</b></div>
-      <div class="fact">💵 Airfare on your own <b>+ $700</b> ground</div>
+    <!-- nav -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:2px solid rgba(32,30,29,0.4)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="width:14px;height:14px;background:#ec3013;display:block"></span>
+        <span style="font-weight:800;font-size:15px;letter-spacing:-0.01em">Living Water Foursquare</span>
+      </div>
+      <div style="display:flex;gap:28px;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">
+        <span>The Why</span><span>Route</span><span>The Week</span><span>Cost</span><span style="color:#ec3013">Contact</span>
+      </div>
     </div>
-    <div class="cta-row">
-      <a class="btn btn-gold" href="#contact">I'm interested →</a>
-      <a class="btn btn-ghost" href="#itinerary">See the week</a>
-    </div>
-  </div>
-  <svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,40 L0,20 C240,-6 480,-6 720,14 C960,34 1200,34 1440,12 L1440,40 Z" fill="#f7f4ee"></path>
-  </svg>
-</header>
 
-<!-- VISION -->
-<section id="vision">
-  <div class="wrap">
-    <div class="eyebrow">The Why</div>
-    <h2>A young nation at a hinge moment</h2>
-    <p class="section-lead">Cambodia carries a hard history — and a hopeful present. After the Khmer Rouge, the church numbered barely 250. Today it's 500,000 — and a movement of leaders is believing for 2 million, one-tenth of the nation, to follow Jesus by 2033, in a country where most people are under thirty. Killing fields to living fields. We'll see it up close: schools and skills training, kids' classes near the border, families being cared for, churches and YWAM bases doing the slow, faithful work of the Kingdom.</p>
-    <div class="stats">
-      <div class="stat"><div class="num">2033</div><div class="lbl">The vision: 10% of Cambodia following Jesus — 2 million believers</div></div>
-      <div class="stat"><div class="num">65%</div><div class="lbl">of Cambodians are under 30 years old</div></div>
-      <div class="stat"><div class="num">250&nbsp;→&nbsp;500K</div><div class="lbl">From a handful of Khmer Rouge survivors to believers today</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- MAP + ROUTE -->
-<section id="route" style="background:#efe9de;">
-  <div class="wrap">
-    <div class="eyebrow">The Route</div>
-    <h2>Phnom Penh → Battambang → Poipet → Siem Reap</h2>
-    <p class="section-lead">An open-jaw loop: fly into the capital in the south, travel northwest through the provinces and out to the Thai border, and finish near Angkor Wat before flying home from Siem Reap.</p>
-    <div class="map-grid">
-      <div class="map-card">
-        <svg viewBox="0 0 800 560" role="img" aria-label="Map of the Cambodia vision tour route">
-          <!-- landmass -->
-          <path d="M120,150 C200,90 340,80 470,120 C560,146 640,150 690,210
-                   C726,254 700,320 660,360 C628,392 640,440 590,470
-                   C520,512 430,500 360,470 C300,444 250,470 200,436
-                   C150,402 168,340 140,300 C112,262 96,200 120,150 Z"
-                fill="#dfe8d9" stroke="#b9c9ae" stroke-width="2"/>
-          <!-- Tonle Sap lake -->
-          <ellipse cx="300" cy="250" rx="66" ry="34" transform="rotate(-32 300 250)"
-                   fill="#a9d3dc" stroke="#7cb8c4" stroke-width="2"/>
-          <text x="256" y="248" font-size="12" fill="#3f7c86" font-family="Georgia,serif" font-style="italic">Tonlé Sap</text>
-
-          <!-- route path: PNH(392,375) -> Battambang(220,252) -> Poipet(156,207) -> Siem Reap(286,231) -->
-          <path d="M392,375 L220,252 L156,207 L286,231" fill="none" stroke="#c98a2b"
-                stroke-width="3.5" stroke-dasharray="2 10" stroke-linecap="round"/>
-
-          <!-- city markers -->
-          <g font-family="-apple-system,Segoe UI,sans-serif">
-            <!-- Phnom Penh -->
-            <circle cx="392" cy="375" r="9" fill="#0f5c57" stroke="#fff" stroke-width="3"/>
-            <text x="406" y="380" font-size="15" font-weight="700" fill="#1f2a2e">Phnom Penh</text>
-            <text x="406" y="396" font-size="11" fill="#5c6b6f">Sun–Mon · Arrive (PNH)</text>
-            <!-- Battambang -->
-            <circle cx="220" cy="252" r="8" fill="#c98a2b" stroke="#fff" stroke-width="3"/>
-            <text x="120" y="243" font-size="14" font-weight="700" fill="#1f2a2e">Battambang</text>
-            <text x="150" y="259" font-size="11" fill="#5c6b6f">Tue</text>
-            <!-- Poipet -->
-            <circle cx="156" cy="207" r="8" fill="#c98a2b" stroke="#fff" stroke-width="3"/>
-            <text x="60" y="200" font-size="14" font-weight="700" fill="#1f2a2e">Poipet</text>
-            <text x="86" y="216" font-size="11" fill="#5c6b6f">Tue–Wed · border</text>
-            <!-- Siem Reap -->
-            <circle cx="286" cy="231" r="9" fill="#0f5c57" stroke="#fff" stroke-width="3"/>
-            <text x="300" y="228" font-size="15" font-weight="700" fill="#1f2a2e">Siem Reap</text>
-            <text x="300" y="244" font-size="11" fill="#5c6b6f">Thu–Fri · Depart (REP)</text>
-          </g>
-          <!-- plane at end -->
-          <text x="300" y="212" font-size="18">🛫</text>
-        </svg>
-        <div class="route-legend">
-          <span><span class="dot" style="background:#0f5c57;box-shadow:0 0 0 1px #0f5c57;"></span> Fly in / out</span>
-          <span><span class="dot"></span> Overland stops</span>
-          <span>— — Driving route</span>
+    <!-- hero -->
+    <div style="position:relative;height:700px;overflow:hidden;background:#201e1d">
+      <img src="images/hero.jpg" alt="Cambodia" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.12)">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,30,29,0.55) 0%,rgba(32,30,29,0.15) 38%,rgba(32,30,29,0.88) 100%)"></div>
+      <div style="position:absolute;left:48px;top:44px;display:flex;align-items:center;gap:12px">
+        <span style="display:block;width:44px;height:2px;background:#ec3013"></span>
+        <span style="color:#f3f2f2;font-size:12px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase">Vision Tour · October 2026</span>
+      </div>
+      <div style="position:absolute;left:48px;right:48px;bottom:48px">
+        <h1 style="margin:0 0 20px;font-size:82px;font-weight:800;line-height:0.98;letter-spacing:-0.03em;color:#f3f2f2;max-width:16ch;text-wrap:pretty">Come see what God is doing in Cambodia</h1>
+        <p style="margin:0 0 20px;max-width:34ch;font-size:30px;font-weight:600;line-height:1.25;letter-spacing:-0.01em;color:#f3f2f2;border-left:4px solid #ec3013;padding-left:20px">Join me to discover what God is doing in this nation — and how you might be a part of it.</p>
+        <p style="margin:0 0 32px;max-width:56ch;font-size:19px;line-height:1.5;color:rgba(243,242,242,0.82)">A week to walk the ground, meet the people carrying the work, and prayerfully consider your part in it.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid rgba(243,242,242,0.45);margin-bottom:32px">
+          <div style="padding:16px 20px 0 0">
+            <div style="font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ff9783;margin-bottom:6px">Dates</div>
+            <div style="font-size:17px;font-weight:600;color:#f3f2f2">Arrive Sunday → Depart Friday</div>
+          </div>
+          <div style="padding:16px 20px 0;border-left:2px solid rgba(243,242,242,0.45)">
+            <div style="font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ff9783;margin-bottom:6px">Fly In &amp; Fly Out</div>
+            <div style="font-size:17px;font-weight:600;color:#f3f2f2">Into Phnom Penh · Out of Siem Reap</div>
+          </div>
+          <div style="padding:16px 0 0 20px;border-left:2px solid rgba(243,242,242,0.45)">
+            <div style="font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ff9783;margin-bottom:6px">Cost</div>
+            <div style="font-size:17px;font-weight:600;color:#f3f2f2">Airfare on your own + $700 ground</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <a href="#" style="display:inline-flex;align-items:center;justify-content:flex-start;min-width:230px;padding:16px 20px;background:#ec3013;color:#f3f2f2;font-size:14px;font-weight:800;letter-spacing:0.02em;text-decoration:none" class="hv1">Text Jon — I'm interested →</a>
+          <a href="#" style="display:inline-flex;align-items:center;justify-content:flex-start;min-width:180px;padding:16px 20px;background:transparent;border:2px solid rgba(243,242,242,0.6);color:#f3f2f2;font-size:14px;font-weight:800;text-decoration:none" class="hv2">See the week</a>
         </div>
       </div>
-      <div>
-        <p style="font-size:1.05rem; color:var(--ink);">Book your flights as a single <b>multi-city / open-jaw</b> itinerary:</p>
-        <div class="day" style="border-left-color:var(--teal);">
-          <h3><span class="tag">Fly in</span> Phnom Penh (PNH)</h3>
-          <p>Arrive Sunday. A host meets you at the airport.</p>
+    </div>
+
+    <!-- why -->
+    <div style="padding:72px 48px;border-bottom:2px solid rgba(32,30,29,0.4)">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:48px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ae1800;padding-top:10px">The Why</div>
+        <div>
+          <h2 style="margin:0 0 20px;font-size:48px;font-weight:800;line-height:1.04;letter-spacing:-0.025em;max-width:20ch">A young nation at a hinge moment</h2>
+          <p style="margin:0;max-width:68ch;font-size:17px;line-height:1.6;color:#444141">Cambodia carries a hard history — and a hopeful present. After the Khmer Rouge, the church numbered barely 250. Today it's 500,000 — and a movement of leaders is believing for 2 million, one-tenth of the nation, to follow Jesus by 2033, in a country where most people are under thirty. We'll see it up close: schools and skills training, kids' classes near the border, families being cared for, churches and YWAM bases doing the slow, faithful work of the Kingdom.</p>
         </div>
-        <div class="day" style="border-left-color:var(--teal);">
-          <h3><span class="tag">Fly out</span> Siem Reap (REP)</h3>
-          <p>Depart Friday after the community send-off night.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;margin-top:44px">
+        <div></div>
+        <div style="border-top:2px solid #ec3013;padding-top:20px">
+          <p style="margin:0;font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:#ec3013;max-width:18ch">Killing fields to living fields.</p>
         </div>
-        <p class="photo-note">Round-trip economy from the U.S. typically runs ~$900–$1,300. Send your itinerary once booked so we can coordinate pickup.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:2px solid rgba(32,30,29,0.4)">
+        <div style="padding:28px 32px 4px 0">
+          <div style="font-size:56px;font-weight:800;line-height:1;letter-spacing:-0.03em;color:#ec3013;margin-bottom:12px">2033</div>
+          <div style="font-size:15px;color:#444141;max-width:28ch">The vision: 10% of Cambodia following Jesus — 2 million believers</div>
+        </div>
+        <div style="padding:28px 32px 4px;border-left:2px solid rgba(32,30,29,0.4)">
+          <div style="font-size:56px;font-weight:800;line-height:1;letter-spacing:-0.03em;color:#ec3013;margin-bottom:12px">65%</div>
+          <div style="font-size:15px;color:#444141;max-width:28ch">of Cambodians are under 30 years old</div>
+        </div>
+        <div style="padding:28px 0 4px 32px;border-left:2px solid rgba(32,30,29,0.4)">
+          <div style="font-size:56px;font-weight:800;line-height:1;letter-spacing:-0.03em;color:#ec3013;margin-bottom:12px">250 → 500K</div>
+          <div style="font-size:15px;color:#444141;max-width:28ch">From a handful of Khmer Rouge survivors to believers today</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ITINERARY -->
-<section id="itinerary">
-  <div class="wrap">
-    <div class="eyebrow">The Week</div>
-    <h2>Day by day</h2>
-    <p class="section-lead">Full days, some long drives, real ministry. Here's the shape of it (tentative, and being finalized with our in-country hosts).</p>
-    <div class="days">
-      <div class="day"><h3><span class="tag">Sun · Oct 25</span> Arrive Phnom Penh</h3><p>Land in Phnom Penh, transfer to the hotel, and settle in. Welcome dinner in the evening — meet the team you'll travel with and hear the shape of the week.</p></div>
-      <div class="day"><h3><span class="tag">Mon · Oct 26</span> Cambodia's story &amp; the 2033 vision</h3><p>Morning at the Killing Fields and S-21 — the ground that makes the hope make sense. Evening at the New Life Educational Center: skills training, youth engagement, and a first look at the vision taking root.</p></div>
-      <div class="day"><h3><span class="tag">Tue · Oct 27</span> Battambang &amp; Poipet</h3><p>Drive to Battambang (~3.5 hrs); lunch at Café Eden and a campus tour. Continue to Poipet for the afternoon — kids' classes and the community education hub near the Thai border.</p></div>
-      <div class="day"><h3><span class="tag">Wed · Oct 28</span> The border camp → Siem Reap</h3><p>Morning food and school-supply distribution at the displaced-families camp. Then drive to Siem Reap (~2 hrs) to regroup.</p></div>
-      <div class="day"><h3><span class="tag">Thu · Oct 29</span> Siem Reap: wonder, work &amp; worship</h3><p>Angkor Wat in the morning. Afternoon of staff encouragement at the YWAM Siem Reap campus. Evening community night (~70 people) — worship, stories, and a send-off.</p></div>
-      <div class="day"><h3><span class="tag">Fri · Oct 30</span> Depart</h3><p>Transfer to Siem Reap International (REP) and head home carrying what you've seen.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" style="background:#efe9de;">
-  <div class="wrap">
-    <div class="eyebrow">A Glimpse</div>
-    <h2>What you'll see</h2>
-    <p class="section-lead">Real photos from the field.</p>
-    <div class="gallery">
-      <div class="photo has-img"><img src="images/kids-poipet.jpg" alt="Children gathering for kids' classes in Poipet" loading="lazy"><span>Kids' classes · Poipet</span></div>
-      <div class="photo has-img"><img src="images/new-life-center.jpg" alt="Students in a computer skills class at the New Life Educational Center" loading="lazy"><span>New Life Center · Phnom Penh</span></div>
-      <div class="photo has-img"><img src="images/cafe-eden.jpg" alt="Café Eden storefront in Battambang at dusk" loading="lazy"><span>Café Eden &amp; campus · Battambang</span></div>
-      <div class="photo has-img"><img src="images/camp.jpg" alt="Team members praying with families during a village visit near the border" loading="lazy"><span>Displaced-families camp</span></div>
-      <div class="photo has-img"><img src="images/angkor-wat.jpg" alt="The towers of Angkor Wat in Siem Reap" loading="lazy"><span>Angkor Wat · Siem Reap</span></div>
-      <div class="photo has-img"><img src="images/community-night.jpg" alt="Worship and prayer during the community night" loading="lazy"><span>Community night · worship</span></div>
-    </div>
-    <p class="photo-note">Every scene from a real week on the ground. Send more anytime and I'll add a lightbox or a larger gallery.</p>
-  </div>
-</section>
-
-<!-- COST -->
-<section id="cost">
-  <div class="wrap">
-    <div class="eyebrow">The Cost</div>
-    <h2>Simple and all-in on the ground</h2>
-    <div class="cost-grid">
-      <div class="cost-card feature">
-        <span class="pill">Ground costs</span>
-        <div class="price">$700 <small>/ person</small></div>
-        <p style="color:#dcebe8; margin:.6em 0 0;">Covers everything once you land:</p>
-        <ul>
-          <li>Lodging for the week</li>
-          <li>All meals</li>
-          <li>Transportation between cities</li>
-          <li>Site visits &amp; local hosting</li>
-        </ul>
+    <!-- bio -->
+    <div style="padding:72px 48px;border-bottom:2px solid rgba(32,30,29,0.4);background:#eae9e9">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;margin-bottom:44px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ae1800;padding-top:8px">Why I Keep Going Back</div>
+        <div>
+          <h2 style="margin:0 0 24px;font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-0.025em;max-width:22ch">Cambodia has had my heart since 2011</h2>
+          <p style="margin:0 0 18px;max-width:66ch;font-size:17px;line-height:1.6;color:#444141">That year I was invited to come and see what God was doing through Foursquare Children of Promise. I went with Tim Wimberly, and while we were there we helped baptize more than 500 children who had come to Christ through FCOP. I've never been the same.</p>
+          <p style="margin:0;max-width:66ch;font-size:17px;line-height:1.6;color:#444141">Since then our church has continued to send teams almost every year. We've watched the nation grow and the church grow with it — and I believe we're standing at a pivotal moment for Cambodia's future. That's why I want you with me on this one.</p>
+          <div style="margin-top:28px;font-size:15px;font-weight:800;letter-spacing:-0.01em">— Pastor Jon Cobler</div>
+        </div>
       </div>
-      <div class="cost-card">
-        <h3>Airfare — on your own</h3>
-        <p style="color:var(--muted); margin:.2em 0 1em;">Book an open-jaw ticket: into <b>Phnom Penh (PNH)</b>, out of <b>Siem Reap (REP)</b>. Roughly $900–$1,300 round-trip economy from the U.S.</p>
-        <h3 style="margin-top:1em;">Not included</h3>
-        <ul>
-          <li>International airfare</li>
-          <li>Visa fee (~$30–$35 e-visa)</li>
-          <li>Travel insurance</li>
-          <li>Personal spending / souvenirs</li>
-          <li>Any add-on nights</li>
-        </ul>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;border-top:2px solid rgba(32,30,29,0.4);padding-top:32px">
+        <figure style="margin:0">
+          <img src="images/jon-2011.jpg" alt="Jon Cobler with children in Cambodia in 2011" loading="lazy" decoding="async" style="display:block;width:100%;height:420px;object-fit:cover;object-position:50% 40%;border:2px solid #201e1d;filter:grayscale(1) contrast(1.08)">
+          <figcaption style="font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#605d5d;margin-top:10px">2011 · the first trip, with FCOP</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <img src="images/jon-recent.jpg" alt="Jon Cobler with young Cambodian leaders and students on a recent trip" loading="lazy" decoding="async" style="display:block;width:100%;height:420px;object-fit:cover;object-position:50% 45%;border:2px solid #201e1d;filter:grayscale(1) contrast(1.08)">
+          <figcaption style="font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#605d5d;margin-top:10px">Today · the generation now leading</figcaption>
+        </figure>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="eyebrow" style="color:var(--gold-l);">Come With Us</div>
-    <h2>Interested? Let's talk.</h2>
-    <p class="section-lead" style="color:#cfe0dd;">Space is limited. Reach out and I'll send the full agenda and travel details.</p>
-    <div class="card">
-      <div class="name">Pastor Jon Cobler</div>
-      <div class="role">Living Water Foursquare</div>
-      <div class="line">✉️ <a href="mailto:jon@livingwater.com?subject=Cambodia%20Vision%20Tour">jon@livingwater.com</a></div>
-      <div class="line">📞 360.754.2287</div>
-      <div class="line">🌐 <a href="https://livingwater.com">livingwater.com</a> · <a href="https://joncobler.com">joncobler.com</a></div>
-      <div style="margin-top:18px;">
-        <a class="btn btn-gold" href="mailto:jon@livingwater.com?subject=Cambodia%20Vision%20Tour%20%E2%80%94%20I'm%20interested">Email me to join →</a>
+    <!-- hosts -->
+    <div style="padding:72px 48px;border-bottom:2px solid rgba(32,30,29,0.4)">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;margin-bottom:40px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ae1800;padding-top:8px">Our Hosts</div>
+        <div>
+          <h2 style="margin:0 0 12px;font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-0.025em">Uriah &amp; Naomi Lyford</h2>
+          <p style="margin:0;max-width:62ch;font-size:17px;color:#444141">YWAM Siem Reap and YWAM Poipet — they lead both bases, and they'll be hosting us on the ground for the week.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:48px;border-top:2px solid rgba(32,30,29,0.4);padding-top:32px">
+        <figure style="margin:0">
+          <img src="images/lyford-family.jpg" alt="Uriah and Naomi Lyford with their two daughters" loading="lazy" decoding="async" style="display:block;width:100%;height:520px;object-fit:cover;object-position:50% 70%;border:2px solid #201e1d;filter:grayscale(1) contrast(1.08)">
+          <figcaption style="font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#605d5d;margin-top:10px">Uriah &amp; Naomi Lyford and family</figcaption>
+        </figure>
+        <div>
+          <p style="margin:0 0 20px;max-width:64ch;font-size:17px;line-height:1.6;color:#444141">Uriah and Naomi lead two YWAM bases — the University of the Nations campus in Siem Reap and the base in Poipet on the Thai border. Between them they cover both ends of our route. They know the country, the church, and the people carrying this work, and they'll open doors we'd never find on our own.</p>
+          <p style="margin:0 0 28px;max-width:64ch;font-size:17px;line-height:1.6;color:#444141">Uriah is also one of the leading voices in social-media influence in Cambodia. When war displaced families along the Thai border this summer, a single post from him reached 1.4 million people and mobilized a $125,000 relief effort — food, shelter and supplies delivered by YWAM teams already on the ground. That's the reach we're walking into.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid rgba(32,30,29,0.4)">
+            <div style="padding:24px 24px 0 0">
+              <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013;margin-bottom:8px">Base one</div>
+              <div style="font-size:20px;font-weight:800;letter-spacing:-0.015em;margin-bottom:4px">YWAM UofN · Siem Reap</div>
+              <div style="font-size:14px;color:#605d5d">Discipleship, training &amp; digital outreach — our Thursday stop.</div>
+            </div>
+            <div style="padding:24px 0 0 24px;border-left:2px solid rgba(32,30,29,0.4)">
+              <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013;margin-bottom:8px">Base two</div>
+              <div style="font-size:20px;font-weight:800;letter-spacing:-0.015em;margin-bottom:4px">YWAM Poipet · Thai border</div>
+              <div style="font-size:14px;color:#605d5d">Kids' classes, the education hub and the displaced-families camp.</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
+            <a href="https://ywam.org/location/uofn-cambodia-siem-reap/b-1445" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:flex-start;min-width:240px;padding:16px 20px;border:2px solid #201e1d;color:#201e1d;font-size:14px;font-weight:800;text-decoration:none" class="hv3">YWAM Siem Reap →</a>
+            <a href="https://www.ywampoipet.org" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:flex-start;min-width:240px;padding:16px 20px;border:2px solid #201e1d;color:#201e1d;font-size:14px;font-weight:800;text-decoration:none" class="hv4">YWAM Poipet →</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="tentative" style="max-width:520px; color:#f0d9b3; background:rgba(201,138,43,.16); border-color:rgba(201,138,43,.5);">
-      The week runs <b>Sunday, October 25 – Friday, October 30, 2026</b>. A few on-the-ground details are still being finalized with our in-country hosts.
+
+    <div style="border-bottom:2px solid rgba(32,30,29,0.4)">
+      <figure style="margin:0;position:relative">
+        <img src="images/war-relief.jpg" alt="YWAM teams teaching and caring for children at the displaced-families camp on the Cambodia–Thailand border" loading="lazy" decoding="async" style="display:block;width:100%;filter:grayscale(1) contrast(1.08);border-top:2px solid #201e1d">
+        <figcaption style="position:absolute;left:0;bottom:0;background:#ec3013;color:#f3f2f2;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:8px 14px">Cambodia–Thailand border relief · YWAM teams on the ground</figcaption>
+      </figure>
+    </div>
+
+    <!-- route -->
+    <div style="padding:72px 48px;border-bottom:2px solid rgba(32,30,29,0.4);background:#eae9e9">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;margin-bottom:48px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ae1800;padding-top:8px">The Route</div>
+        <div>
+          <h2 style="margin:0 0 16px;font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-0.025em">Phnom Penh → Battambang → Poipet → Siem Reap</h2>
+          <p style="margin:0;max-width:64ch;font-size:17px;color:#444141">An open-jaw loop: fly into the capital in the south, travel northwest through the provinces and out to the Thai border, and finish near Angkor Wat before flying home from Siem Reap.</p>
+        </div>
+      </div>
+
+      <div style="border:2px solid #201e1d;background:#f3f2f2">
+        <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#7d7979;padding:14px 24px;border-bottom:2px solid rgba(32,30,29,0.4)">
+          <span>Fig. 1 — Overland route, 6 days</span><span>Phnom Penh → Battambang → Poipet → Siem Reap</span>
+        </div>
+        <iframe src="cambodia-map.html?theme=modernist" title="Map of the route through Cambodia" loading="lazy" style="display:block;width:100%;height:620px;border:0"></iframe>
+        <div style="display:flex;gap:32px;align-items:center;font-size:12px;font-weight:600;color:#605d5d;padding:14px 24px;border-top:2px solid rgba(32,30,29,0.4)">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;background:#ec3013;display:block"></span>Fly in / out</span>
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border:2px solid #201e1d;display:block"></span>Overland stop</span>
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:2px;background:repeating-linear-gradient(90deg,#201e1d 0 6px,transparent 6px 11px);display:block"></span>Driving route</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;margin-top:40px;border-top:2px solid rgba(32,30,29,0.4)">
+        <div style="padding:28px 32px 0 0">
+          <h4 style="margin:0 0 6px;font-size:20px;font-weight:800">Fly in — Phnom Penh (PNH)</h4>
+          <p style="margin:0;color:#444141">Arrive Sunday. A host meets you at the airport.</p>
+        </div>
+        <div style="padding:28px 0 0 32px;border-left:2px solid rgba(32,30,29,0.4)">
+          <h4 style="margin:0 0 6px;font-size:20px;font-weight:800">Fly out — Siem Reap (REP)</h4>
+          <p style="margin:0;color:#444141">Depart Friday after the community send-off night.</p>
+        </div>
+      </div>
+      <p style="margin:24px 0 0;font-size:14px;color:#605d5d;max-width:72ch">Book as a single multi-city / open-jaw itinerary. Round-trip economy from the U.S. typically runs ~$900–$1,300. Send your itinerary once booked so we can coordinate pickup.</p>
+    </div>
+
+    <!-- week -->
+    <div style="padding:72px 48px;border-bottom:2px solid rgba(32,30,29,0.4)">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;margin-bottom:40px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ae1800;padding-top:8px">The Week</div>
+        <div>
+          <h2 style="margin:0 0 12px;font-size:44px;font-weight:800;letter-spacing:-0.025em">Day by day</h2>
+          <p style="margin:0;max-width:62ch;font-size:17px;color:#444141">Full days, some long drives, real ministry. Here's the shape of it — tentative, and being finalized with our in-country hosts.</p>
+        </div>
+      </div>
+      <div style="border-top:2px solid rgba(32,30,29,0.4)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:26px 0;border-bottom:2px solid rgba(32,30,29,0.4)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013">Sun</div>
+          <div><h4 style="margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-0.015em">Arrive Phnom Penh</h4><p style="margin:0;max-width:74ch;color:#444141">Land in Phnom Penh, transfer to the hotel, and settle in. Welcome dinner in the evening — meet the team you'll travel with and hear the shape of the week.</p></div>
+        </div>
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:26px 0;border-bottom:2px solid rgba(32,30,29,0.4)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013">Mon</div>
+          <div><h4 style="margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-0.015em">Cambodia's story &amp; the 2033 vision</h4><p style="margin:0;max-width:74ch;color:#444141">Morning at the Killing Fields and S-21 — the ground that makes the hope make sense. Evening at the New Life Educational Center: skills training, youth engagement, and a first look at the vision taking root.</p></div>
+        </div>
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:26px 0;border-bottom:2px solid rgba(32,30,29,0.4)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013">Tue</div>
+          <div><h4 style="margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-0.015em">Battambang &amp; Poipet</h4><p style="margin:0;max-width:74ch;color:#444141">Drive to Battambang (~3.5 hrs); lunch at Café Eden and a campus tour. Continue to Poipet for the afternoon — kids' classes and the community education hub near the Thai border.</p></div>
+        </div>
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:26px 0;border-bottom:2px solid rgba(32,30,29,0.4)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013">Wed</div>
+          <div><h4 style="margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-0.015em">The border camp → Siem Reap</h4><p style="margin:0;max-width:74ch;color:#444141">Morning food and school-supply distribution at the displaced-families camp. Then drive to Siem Reap (~2 hrs) to regroup.</p></div>
+        </div>
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:26px 0;border-bottom:2px solid rgba(32,30,29,0.4)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013">Thu</div>
+          <div><h4 style="margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-0.015em">Siem Reap: wonder, work &amp; worship</h4><p style="margin:0;max-width:74ch;color:#444141">Angkor Wat in the morning. Afternoon of staff encouragement at the YWAM Siem Reap campus. Evening community night (~70 people) — worship, stories, and a send-off.</p></div>
+        </div>
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:26px 0">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ec3013">Fri</div>
+          <div><h4 style="margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-0.015em">Depart</h4><p style="margin:0;max-width:74ch;color:#444141">Transfer to Siem Reap International (REP) and head home carrying what you've seen.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- gallery -->
+    
+    <div style="border-bottom:2px solid rgba(32,30,29,0.4)">
+      <div style="padding:72px 48px 40px;display:grid;grid-template-columns:220px 1fr;gap:48px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ae1800;padding-top:8px">A Glimpse</div>
+        <div>
+          <h2 style="margin:0 0 12px;font-size:44px;font-weight:800;letter-spacing:-0.025em">What you'll see</h2>
+          <p style="margin:0;font-size:17px;color:#444141">Real photos from a real week on the ground.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#201e1d;border-top:2px solid #201e1d">
+        <figure style="margin:0;position:relative;background:#f3f2f2"><img src="images/kids-poipet.jpg" alt="Boys learning to type on laptops in a classroom in Poipet" loading="lazy" decoding="async" style="display:block;width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.08)"><figcaption style="position:absolute;left:0;bottom:0;background:#ec3013;color:#f3f2f2;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:7px 12px">Kids' classes · Poipet</figcaption></figure>
+        <figure style="margin:0;position:relative;background:#f3f2f2"><img src="images/new-life-center.jpg" alt="The New Life Educational Center community gathered outside the campus in Phnom Penh" loading="lazy" decoding="async" style="display:block;width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.08)"><figcaption style="position:absolute;left:0;bottom:0;background:#ec3013;color:#f3f2f2;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:7px 12px">New Life Center · Phnom Penh</figcaption></figure>
+        <figure style="margin:0;position:relative;background:#f3f2f2"><img src="images/cafe-eden.jpg" alt="Café Eden storefront in Battambang" loading="lazy" decoding="async" style="display:block;width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.08)"><figcaption style="position:absolute;left:0;bottom:0;background:#ec3013;color:#f3f2f2;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:7px 12px">Café Eden · Battambang</figcaption></figure>
+        <figure style="margin:0;position:relative;background:#f3f2f2"><img src="images/camp.jpg" alt="Aerial view of the displaced-families camp — rows of tarpaulin shelters along dirt roads" loading="lazy" decoding="async" style="display:block;width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.08)"><figcaption style="position:absolute;left:0;bottom:0;background:#ec3013;color:#f3f2f2;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:7px 12px">Displaced-families camp</figcaption></figure>
+        <figure style="margin:0;position:relative;background:#f3f2f2"><img src="images/angkor-wat.jpg" alt="Angkor Wat" loading="lazy" decoding="async" style="display:block;width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.08)"><figcaption style="position:absolute;left:0;bottom:0;background:#ec3013;color:#f3f2f2;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:7px 12px">Angkor Wat · Siem Reap</figcaption></figure>
+        <figure style="margin:0;position:relative;background:#f3f2f2"><img src="images/community-night.jpg" alt="Worship during the community night" loading="lazy" decoding="async" style="display:block;width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.08)"><figcaption style="position:absolute;left:0;bottom:0;background:#ec3013;color:#f3f2f2;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:7px 12px">Community night · worship</figcaption></figure>
+      </div>
+    </div>
+    
+
+    <!-- cost -->
+    <div style="padding:72px 48px;border-bottom:2px solid rgba(32,30,29,0.4)">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;margin-bottom:44px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#ae1800;padding-top:8px">The Cost</div>
+        <div><h2 style="margin:0;font-size:44px;font-weight:800;letter-spacing:-0.025em">Simple and all-in on the ground</h2></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid rgba(32,30,29,0.4)">
+        <div style="padding:32px 32px 0 0">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#605d5d;margin-bottom:10px">Ground costs</div>
+          <div style="font-size:64px;font-weight:800;line-height:1;letter-spacing:-0.035em;color:#ec3013;margin-bottom:6px">$700</div>
+          <div style="font-size:14px;font-weight:600;color:#605d5d;margin-bottom:20px">per person · covers everything once you land</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;color:#444141">
+            <span>Lodging for the week</span><span>All meals</span><span>Transportation between cities</span><span>Site visits &amp; local hosting</span>
+          </div>
+        </div>
+        <div style="padding:32px 32px 0;border-left:2px solid rgba(32,30,29,0.4)">
+          <h4 style="margin:0 0 10px;font-size:20px;font-weight:800">Airfare — on your own</h4>
+          <p style="margin:0;color:#444141">Book an open-jaw ticket: into Phnom Penh (PNH), out of Siem Reap (REP). Roughly $900–$1,300 round-trip economy from the U.S.</p>
+        </div>
+        <div style="padding:32px 0 0 32px;border-left:2px solid rgba(32,30,29,0.4)">
+          <h4 style="margin:0 0 10px;font-size:20px;font-weight:800">Not included</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;color:#444141">
+            <span>International airfare</span><span>Visa fee (~$30–$35 e-visa)</span><span>Travel insurance</span><span>Personal spending / souvenirs</span><span>Any add-on nights</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact — the red field -->
+    <div style="background:#ec3013;color:#f3f2f2;padding:80px 48px">
+      <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:rgba(243,242,242,0.75);margin-bottom:20px">Come With Us</div>
+      <h2 style="margin:0 0 20px;font-size:64px;font-weight:800;line-height:1;letter-spacing:-0.03em;max-width:18ch">Space is limited. Text me.</h2>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid rgba(243,242,242,0.5);padding-top:32px">
+        <div>
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:rgba(243,242,242,0.75);margin-bottom:10px">Text or call</div>
+          <div style="font-size:52px;font-weight:800;letter-spacing:-0.03em;line-height:1">360.480.4246</div>
+        </div>
+        <div style="padding-left:32px;border-left:2px solid rgba(243,242,242,0.5)">
+          <div style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:rgba(243,242,242,0.75);margin-bottom:10px">Pastor Jon Cobler</div>
+          <div style="font-size:16px;line-height:1.7">Living Water Foursquare<br>jon@livingwater.com<br>livingwater.com · joncobler.com</div>
+        </div>
+      </div>
+      <a href="#" style="display:inline-flex;align-items:center;justify-content:flex-start;min-width:280px;margin-top:36px;padding:18px 22px;background:#f3f2f2;color:#ec3013;font-size:15px;font-weight:800;text-decoration:none" class="hv5">Text Jon — I'm interested →</a>
+    </div>
+
+    <div style="padding:28px 48px;font-size:12px;color:#605d5d;display:flex;justify-content:space-between;gap:32px">
+      <span>Dates and details are tentative and being finalized with our in-country hosts. Arrive Sunday, depart Friday — late October 2026.</span>
+      <span style="white-space:nowrap">Draft — not for wide distribution.</span>
     </div>
   </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    Cambodia Vision Tour · October 25–30, 2026 · Living Water Foursquare
-  </div>
-</footer>
-
 </body>
 </html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cambodia route map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@400;600&display=swap">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  svg { display: block; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<svg id="map" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid meet"></svg>
+<script>
+(function () {
+  const THEMES = {
+    modernist: {
+      water: '#e6e4e3', neighbor: '#dcdad8', neighborLine: '#e6e4e3',
+      land: '#f6f5f5', outline: '#201e1d', outlineW: 2, coast: '#201e1d',
+      route: '#201e1d', routeW: 2.5, dash: '11 8', leader: 'rgba(32,30,29,0.45)',
+      hub: '#ec3013', stopFill: '#f6f5f5', city: '#201e1d', kicker: '#ec3013',
+      muted: '#7d7979', sea: '#8c8886',
+      head: '"Archivo", sans-serif', headW: 800, body: '"Archivo", sans-serif',
+      nameTrack: '-0.02em', kickerTrack: '0.13em', grid: null
+    },
+    industry: {
+      water: '#eceef1', neighbor: '#e2e3e7', neighborLine: '#eceef1',
+      land: 'rgba(89,128,166,0.13)', outline: '#5980a6', outlineW: 1.25, coast: '#5980a6',
+      route: '#41618088', routeW: 2, dash: '9 6', leader: 'rgba(89,128,166,0.7)',
+      hub: '#5980a6', stopFill: '#f5f5f8', city: '#1d1f20', kicker: '#5980a6',
+      muted: '#7a7a7d', sea: '#748a9e',
+      head: '"Barlow Condensed", sans-serif', headW: 600, body: '"Barlow", sans-serif',
+      nameTrack: '0.01em', kickerTrack: '0.17em', grid: 'rgba(89,128,166,0.13)'
+    }
+  };
+  const t = THEMES[new URLSearchParams(location.search).get('theme')] || THEMES.modernist;
+  t.route = t.route === '#41618088' ? '#416180' : t.route;
+
+  const W = 1200, H = 640;
+
+  // Label gutters keep the type well clear of the country outline.
+  const STOPS = [
+    { n: 3, name: 'Poipet',     lon: 102.5657, lat: 13.6564, when: 'Day 3–4 · Tue–Wed', tag: 'Thai border',   hub: false, lx: 268, ly: 146, side: 'left'  },
+    { n: 2, name: 'Battambang', lon: 103.1968, lat: 13.0957, when: 'Day 3 · Tue',       tag: '~3.5 hr drive', hub: false, lx: 268, ly: 380, side: 'left'  },
+    { n: 4, name: 'Siem Reap',  lon: 103.8555, lat: 13.3622, when: 'Day 5–6 · Thu–Fri', tag: 'Fly out · REP', hub: true,  lx: 932, ly: 134, side: 'right' },
+    { n: 1, name: 'Phnom Penh', lon: 104.9160, lat: 11.5564, when: 'Day 1–2 · Sun–Mon', tag: 'Fly in · PNH',  hub: true,  lx: 932, ly: 462, side: 'right' }
+  ];
+  const ROUTE = ['Phnom Penh', 'Battambang', 'Poipet', 'Siem Reap'];
+  const CONTEXT = [
+    { name: 'THAILAND', lon: 101.4, lat: 12.4, size: 14 },
+    { name: 'LAOS',     lon: 106.3, lat: 14.5, size: 14 },
+    { name: 'VIETNAM',  lon: 107.0, lat: 10.9, size: 14 },
+    { name: 'GULF OF THAILAND', lon: 102.6, lat: 10.1, size: 12, sea: true }
+  ];
+
+  const svg = d3.select('#map');
+  svg.append('rect').attr('width', W).attr('height', H).attr('fill', t.water);
+
+  d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json').then(topo => {
+    const countries = topojson.feature(topo, topo.objects.countries).features;
+    const khm = countries.find(f => f.properties.name === 'Cambodia');
+
+    const projection = d3.geoMercator().fitExtent([[352, 108], [848, 532]], khm);
+    const path = d3.geoPath(projection);
+    const xy = d => projection([d.lon, d.lat]);
+
+    if (t.grid) {
+      const g = svg.append('g');
+      for (let x = 0; x <= W; x += 40) g.append('line').attr('x1', x).attr('x2', x).attr('y1', 0).attr('y2', H).attr('stroke', t.grid).attr('stroke-width', 1);
+      for (let y = 0; y <= H; y += 40) g.append('line').attr('x1', 0).attr('x2', W).attr('y1', y).attr('y2', y).attr('stroke', t.grid).attr('stroke-width', 1);
+    }
+
+    svg.append('g').selectAll('path')
+      .data(countries.filter(f => f.properties.name !== 'Cambodia'))
+      .join('path')
+      .attr('d', path).attr('fill', t.neighbor)
+      .attr('stroke', t.neighborLine).attr('stroke-width', 1.5);
+
+    svg.append('path').datum(khm).attr('d', path)
+      .attr('fill', t.land).attr('stroke', t.coast)
+      .attr('stroke-width', t.outlineW).attr('stroke-linejoin', 'round');
+
+    svg.append('g').selectAll('text')
+      .data(CONTEXT).join('text')
+      .attr('x', d => xy(d)[0]).attr('y', d => xy(d)[1])
+      .attr('text-anchor', 'middle')
+      .attr('font-family', t.body).attr('font-size', d => d.size)
+      .attr('font-style', d => d.sea ? 'italic' : 'normal')
+      .attr('letter-spacing', '0.22em')
+      .attr('fill', d => d.sea ? t.sea : t.muted)
+      .text(d => d.name);
+
+    const byName = Object.fromEntries(STOPS.map(s => [s.name, s]));
+    svg.append('path')
+      .datum({ type: 'LineString', coordinates: ROUTE.map(n => [byName[n].lon, byName[n].lat]) })
+      .attr('d', path).attr('fill', 'none')
+      .attr('stroke', t.route).attr('stroke-width', t.routeW)
+      .attr('stroke-dasharray', t.dash).attr('stroke-linecap', 'round');
+
+    // leader lines from each dot out to its label gutter
+    svg.append('g').selectAll('polyline').data(STOPS).join('polyline')
+      .attr('fill', 'none').attr('stroke', t.leader).attr('stroke-width', 1)
+      .attr('points', d => {
+        const [x, y] = xy(d);
+        const endX = d.side === 'left' ? d.lx + 12 : d.lx - 12;
+        const midX = d.side === 'left' ? x - 34 : x + 34;
+        return [[x, y], [midX, y], [midX, d.ly], [endX, d.ly]].map(p => p.join(',')).join(' ');
+      });
+
+    const g = svg.append('g').selectAll('g').data(STOPS).join('g')
+      .attr('transform', d => 'translate(' + xy(d).join(',') + ')');
+
+    g.append('rect')
+      .attr('x', -17).attr('y', -17).attr('width', 34).attr('height', 34)
+      .attr('fill', d => d.hub ? t.hub : t.stopFill)
+      .attr('stroke', t.outline).attr('stroke-width', t.outlineW);
+
+    g.append('text')
+      .attr('text-anchor', 'middle').attr('y', 9)
+      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 24)
+      .attr('fill', d => d.hub ? t.stopFill : t.city)
+      .text(d => d.n);
+
+    const label = svg.append('g').selectAll('g').data(STOPS).join('g')
+      .attr('transform', d => 'translate(' + d.lx + ',' + d.ly + ')');
+    const anchor = d => d.side === 'left' ? 'end' : 'start';
+
+    label.append('text').attr('text-anchor', anchor).attr('y', -30)
+      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 13)
+      .attr('letter-spacing', t.kickerTrack).attr('fill', t.kicker)
+      .text(d => d.tag.toUpperCase());
+
+    label.append('text').attr('text-anchor', anchor)
+      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 34)
+      .attr('letter-spacing', t.nameTrack).attr('fill', t.city)
+      .text(d => d.name);
+
+    label.append('line')
+      .attr('x1', d => d.side === 'left' ? -186 : 0).attr('x2', d => d.side === 'left' ? 0 : 186)
+      .attr('y1', 16).attr('y2', 16)
+      .attr('stroke', t.kicker).attr('stroke-width', 2.5);
+
+    label.append('text').attr('text-anchor', anchor).attr('y', 44)
+      .attr('font-family', t.head).attr('font-weight', t.headW).attr('font-size', 21)
+      .attr('letter-spacing', '0.05em').attr('fill', t.city)
+      .text(d => d.when.toUpperCase());
+  }).catch(err => {
+    svg.append('text').attr('x', 28).attr('y', 40)
+      .attr('font-family', t.body).attr('font-size', 15).attr('fill', t.muted)
+      .text('Map data could not be loaded.');
+    console.error(err);
+  });
+})();
+</script>
+</body>
+</html>
